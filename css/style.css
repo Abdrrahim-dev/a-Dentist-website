@@ -62,6 +62,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 header .container .logo {
   width: 150px;
@@ -109,6 +110,53 @@ header .container nav a:hover {
 }
 header .container nav a:hover::after {
   animation: fill-circle 0.2s linear;
+}
+header .container > i {
+  display: none;
+}
+@media (max-width: 767px) {
+  header .container {
+    flex-direction: column;
+  }
+  header .container nav {
+    width: 90%;
+    justify-content: space-between;
+  }
+  header .container nav a {
+    padding: 0;
+    font-size: 17px;
+  }
+  header .container nav a.removable {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  header .container nav {
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 72px;
+    width: 50%;
+    background-color: var(--bgc-color);
+    display: none;
+  }
+  header .container nav a {
+    border-bottom: 1px solid var(--second-color);
+    width: 100%;
+    justify-content: center;
+    font-size: 20px;
+  }
+  header .container > i {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+  }
+  header .container > i:hover + nav {
+    display: flex;
+  }
 }
 /* animation */
 @keyframes fill-circle {
