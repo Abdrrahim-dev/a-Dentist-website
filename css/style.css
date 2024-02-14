@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+/* variables */
+:root {
+  --main-color: #3498db;
+  --second-color: #8abe52;
+  --sec-padding: ;
+  --bgc-color: #ddd;
+  --p-color: #777;
+  --transition: 0.3s;
+}
+/* the main container */
+.container {
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    width: 950px;
+  }
+}
+/* sections title */
+.title {
+  padding: 20px 25px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  text-transform: uppercase;
+  width: fit-content;
+  margin: 0 auto;
+}
+/* start header */
+header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ddd;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .container .logo {
+  width: 150px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .container .logo img {
+  max-width: 100%;
+}
+header .container nav {
+  display: flex;
+  align-items: center;
+}
+header .container nav a {
+  height: 72px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+header .container ul a.active {
+  color: var(--main-color);
+}
+
+header .container nav a::after {
+  content: "";
+  width: 0;
+  height: 0;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  z-index: 0;
+}
+header .container nav a:hover {
+  animation: bg-color 0.1s linear 0.1s forwards;
+}
+header .container nav a:hover::after {
+  animation: fill-circle 0.2s linear;
+}
+/* animation */
+@keyframes fill-circle {
+  0% {
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  99% {
+    width: 150px;
+    height: 150px;
+  }
+  100% {
+    display: none;
+  }
+}
+@keyframes bg-color {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: var(--main-color);
+    color: #fff;
+  }
+}
